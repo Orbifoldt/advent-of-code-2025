@@ -1,0 +1,11 @@
+{
+    "name": "elixir-dev-container",
+    "image": "elixir",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+            
+            ]
+        }
+    }
+}
