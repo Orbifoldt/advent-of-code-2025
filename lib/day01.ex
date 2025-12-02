@@ -67,7 +67,9 @@ defmodule Day01 do
     |> count_all_zeroes
   end
 
-  def count_all_zeroes(entries) do count_all_zeroes(0, 50, entries) end
+  def count_all_zeroes(entries) do
+    count_all_zeroes(0, 50, entries)
+  end
 
   defp count_all_zeroes(count, _current_sum, []) do
     count
@@ -75,7 +77,10 @@ defmodule Day01 do
 
   defp count_all_zeroes(count, current_sum, [x | tail]) do
     next_sum = current_sum + x
-    next_count = count + abs(div(next_sum, 100)) + if current_sum != 0 && next_sum <= 0, do: 1, else: 0
+
+    next_count =
+      count + abs(div(next_sum, 100)) + if current_sum != 0 && next_sum <= 0, do: 1, else: 0
+
     count_all_zeroes(next_count, Integer.mod(next_sum, 100), tail)
   end
 
@@ -93,12 +98,11 @@ defmodule Day01 do
   def positive_div_mod(dividend, divisor) do
     result = div(dividend, divisor)
     remainder = rem(dividend, divisor)
+
     if remainder < 0 do
-      {result - 1, remainder+divisor}
+      {result - 1, remainder + divisor}
     else
       {result, remainder}
     end
   end
-
-
 end
