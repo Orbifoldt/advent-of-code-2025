@@ -24,7 +24,7 @@ defmodule $capital_day_string do
 
   @doc """
   ##
-  iex> $capital_day_string.part1("...")
+  iex> $capital_day_string.part1(["..."])
   3
   """
   def part1(data) do
@@ -39,7 +39,7 @@ defmodule $capital_day_string do
 
   @doc """
   ##
-  iex> $capital_day_string.part2("...")
+  iex> $capital_day_string.part2(["..."])
   0
   """
   def part2(data) do
