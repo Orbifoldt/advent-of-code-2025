@@ -46,6 +46,7 @@ defmodule Day03 do
     |> Enum.reduce({-1, 0}, fn x, acc ->
       {prev_max_idx, total} = acc
 
+      # Look for next biggest after last one, but don't go too far
       {max, max_idx} =
         values
         |> Enum.slice((prev_max_idx + 1)..(n - x))
