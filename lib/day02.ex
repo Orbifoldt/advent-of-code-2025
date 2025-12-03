@@ -117,6 +117,7 @@ defmodule Day02 do
   def is_invalid_pt2(num) do
     chars = Integer.to_charlist(num)
     size = length(chars)
+
     if size == 1 do
       false
     else
