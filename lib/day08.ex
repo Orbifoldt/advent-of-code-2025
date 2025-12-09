@@ -158,8 +158,6 @@ defmodule Day08 do
       end)
 
     {i, j, _dist} = Enum.at(dist_graph, connections_required - 1)
-    dbg(Enum.at(coords, i))
-    dbg(Enum.at(coords, j))
     {x_a, _, _} = Enum.at(coords, i)
     {x_b, _, _} = Enum.at(coords, j)
     x_a * x_b
