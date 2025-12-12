@@ -91,18 +91,17 @@ defmodule Day10 do
   defp parse_lights(acc, "#" <> tail), do: parse_lights([1 | acc], tail)
 
   defp parse_buttons(buttons_str, n) do
-    result =
-      Regex.scan(~r/(?:\(([\d,]+)\))/, buttons_str)
-      |> Enum.map(fn match -> Enum.at(match, 1) end)
-      |> Enum.map(&Regex.split(~r/,/, &1))
-      |> Enum.map(fn button ->
-        nums = Enum.map(button, &Util.parse_int!/1) |> MapSet.new()
+    Regex.scan(~r/(?:\(([\d,]+)\))/, buttons_str)
+    |> Enum.map(fn match -> Enum.at(match, 1) end)
+    |> Enum.map(&Regex.split(~r/,/, &1))
+    |> Enum.map(fn button ->
+      nums = Enum.map(button, &Util.parse_int!/1) |> MapSet.new()
 
-        0..(n - 1)
-        |> Enum.map(fn i ->
-          if MapSet.member?(nums, i), do: 1, else: 0
-        end)
+      0..(n - 1)
+      |> Enum.map(fn i ->
+        if MapSet.member?(nums, i), do: 1, else: 0
       end)
+    end)
   end
 
   defp parse_joltage(joltage_string) do
