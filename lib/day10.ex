@@ -103,8 +103,6 @@ defmodule Day10 do
           if MapSet.member?(nums, i), do: 1, else: 0
         end)
       end)
-
-    dbg(result)
   end
 
   defp parse_joltage(joltage_string) do
